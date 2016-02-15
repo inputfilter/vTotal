@@ -33,8 +33,15 @@ class VirusTotal():
         json = postfile.post_multipart(host, selector, fields, files)
         return json
 
-    def file_rescan():
-        pass
+    def file_rescan(self, md5_hash):
+        url = self.header + "file/rescan"
+        parameters = {"resource": md5_hash,"apikey": self.api_key}
+        data = urllib.urlencode(parameters)
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        json = response.read()
+        
+        return json
     
     def url_scan():
         pass

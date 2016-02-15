@@ -1,0 +1,11 @@
+#OSX
+.DS_Store
+# pyenv
+.python-version
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+#VT
+api_key

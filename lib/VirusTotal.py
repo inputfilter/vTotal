@@ -43,8 +43,15 @@ class VirusTotal():
         
         return json
     
-    def url_scan():
-        pass
+    def url_scan(self, scan_url):
+        url = self.header + "url/scan"
+        parameters = {"url": scan_url,"apikey": self.api_key}
+        data = urllib.urlencode(parameters)
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        json = response.read()
+
+        return json
 
     def url_report():
         pass

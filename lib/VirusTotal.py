@@ -53,13 +53,34 @@ class VirusTotal():
 
         return json
 
-    def url_report():
-        pass
+    def url_report(self, scan_url):
+        url = self.header + "url/report"
+        parameters = {"url": scan_url,"apikey": self.api_key}
+        data = urllib.urlencode(parameters)
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        json = response.read()
 
-    def ip_report():
-        pass
+        return json
 
-    def domain_report():
-        pass
 
+    def ip_report(self, ip_addr):
+        url = self.header + "ip-address/report"
+        parameters = {"ip": ip_addr,"apikey": self.api_key}
+        data = urllib.urlencode(parameters)
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        json = response.read()
+
+        return json
+
+    def domain_report(self, domain):
+        url = self.header + "domain/report"
+        parameters = {"domain": domain,"apikey": self.api_key}
+        data = urllib.urlencode(parameters)
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        json = response.read()
+
+        return json
 
